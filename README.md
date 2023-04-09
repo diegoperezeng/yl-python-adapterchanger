@@ -6,11 +6,9 @@ Install python3-tk (for OpenSuse run 'sudo zypper install python3-tk')
 
 Then Install pip (for OpenSuse run 'sudo zypper install python3-pip')
 
-Then use pip to install Pillow (run 'pip3 install Pillow')
-
 Run 'sudo xhost +local:'
 
-Set your local user and root password in the config.cfg file and the data should be between double comma.
+Set your local user (between double comma) and root password (without commas) in the config.cfg file.
 
 
 
