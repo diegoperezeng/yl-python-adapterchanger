@@ -1,3 +1,19 @@
 #!/bin/bash
-/usr/sbin/capsh --caps="cap_net_admin+ep cap_setuid,cap_setgid+ep" --keep=1 --user=$USER -- -c "exec python3 $(dirname "$0")/adapter_toggle.py"
 
+# Check eth0 adapter status and toggle it
+if [[ $(ip link show eth0 | grep 'state' | awk '{print $9}') == "DOWN" ]]; then
+    echo "Enabling eth0 adapter"
+    ip link set eth0 up
+else
+    echo "Disabling eth0 adapter"
+    ip link set eth0 down
+fi
+
+# Check eth1 adapter status and toggle it
+if [[ $(ip link show eth1 | grep 'state' | awk '{print $9}') == "DOWN" ]]; then
+    echo "Enabling eth1 adapter"
+    ip link set eth1 up
+else
+    echo "Disabling eth1 adapter"
+    ip link set eth1 down
+fi
